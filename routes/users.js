@@ -6,16 +6,13 @@ let authController = require("../controllers/auth");
 /* GET users listing. */
 router.get("/me", authController.requireAuth, usersController.myprofile);
 
-// router.get('/signup', usersController.renderSignup);
+/* POST Sign-up */
 router.post("/signup", usersController.signup);
 
-// router.get('/signin', usersController.renderSignin);
+/* POST Sign-in */
 router.post("/signin", usersController.signin);
 
-// router.get('/signout', usersController.signout);
-
 /* PUT update user */
-//router.put("/edit/:id", usersController.userEdit);
 router.put("/edit/:id", authController.requireAuth, usersController.userEdit);
 
 module.exports = router;
